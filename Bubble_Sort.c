@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define tam_Array 10
+#define tam_Array 10000000
 
 int WinMain(){
    int array_Num[tam_Array];
