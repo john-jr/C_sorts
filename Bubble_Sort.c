@@ -5,7 +5,8 @@ int * createArray(int *, int);
 void bubbleSortArray(int *, int tam_array);
 
 void WinMain(){
-   int tam_array;
+   int tam_array;\
+   int *p; 
       printf("Digite a quantidade de elementos do vetor: ");
       scanf("%d",&tam_array);
    bubbleSortArray(createArray(&p, tam_array), tam_array);
