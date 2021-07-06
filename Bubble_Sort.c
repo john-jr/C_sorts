@@ -1,40 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define tam_Array 10
 
-int WinMain(){
-   int array_Num[tam_Array];
-   int auxiliar_cont,i,j;
+int * createArray(int *, int);
+void bubbleSortArray(int *, int tam_array);
 
-    printf("Pressione ENTER para iniciar!" );
-    getchar();    
-    printf("\nStart!\n\n" );
-    srand(time(NULL)); 
+void WinMain(){
+   int tam_array;
+      printf("Digite a quantidade de elementos do vetor: ");
+      scanf("%d",&tam_array);
+   bubbleSortArray(createArray(&p, tam_array), tam_array);
+}
 
-    for (auxiliar_cont = 0; auxiliar_cont < tam_Array; auxiliar_cont++)
-    {
-       array_Num[auxiliar_cont] = rand() % 11;
-    }
-    
+int * createArray(int *p, int tam_array){
+   int i;
+   p = (int *)(calloc(tam_array , (sizeof(int))));
+      if (p == NULL){
+         printf("Memória Insuficiente, encerrando o programa...");
+         system("pause");
+         exit(1);
+         }
+   srand((unsigned)time(NULL)); 
+      for (i = 0; i < tam_array; i++){
+         p[i] = rand() % 11;
+      }
     printf("Vetor Criado:\n");
-    for (auxiliar_cont = 0;  auxiliar_cont < tam_Array; auxiliar_cont++) {
-        printf("%1d ", array_Num[auxiliar_cont]);
-    }
-    
-    /* Início do Algoritmo Bubble Sort */
-    for (i = 1; i < tam_Array; i++) {
-      for (j = 0; j < tam_Array - 1; j++) {
-        if (array_Num[j] > array_Num[j + 1]) {
-          auxiliar_cont = array_Num[j];
-         array_Num[j] = array_Num[j + 1];
-         array_Num[j + 1] = auxiliar_cont;
-        }
-    }
- }
-  /*Fim do Algoritmo Bubble Sort */ 
+      for (int i = 0;  i < tam_array; i++){
+        printf("%1d ", p[i]);
+      }
+   return p;
+}
 
+void bubbleSortArray(int *p, int tam_array){
+   int auxiliar_cont,i,j;
+     for (i = 1; i < tam_array; i++) {
+      for (j = 0; j < tam_array - 1; j++) {
+        if (p[j] > p[j + 1]) {
+          auxiliar_cont = p[j];
+         p[j] = p[j + 1];
+         p[j + 1] = auxiliar_cont;
+               }
+            }
+       }
      printf("\n\nVetor Ordenado:\n");
-     for (auxiliar_cont = 0;  auxiliar_cont < tam_Array; auxiliar_cont++) {
-          printf("%1d ", array_Num[auxiliar_cont]);
+     for (auxiliar_cont = 0;  auxiliar_cont < tam_array; auxiliar_cont++) {
+          printf("%1d ", p[auxiliar_cont]);
         }
+
+      free(p);
+     
+    
 }
