@@ -56,10 +56,10 @@ void startOrganizing (int *p,int comeco, int meio_array, int final){
           } else {
             pOrd[i] = p[pont_direito++];
           }
-        if(fim_esquerdo > meio_array){
+        if(pont_esquerdo > meio_array){
           fim_esquerdo = 1;
         }
-        if(fim_direito > final){
+        if(pont_direito > final){
           fim_direito = 1;
         }
         } else {
@@ -77,8 +77,10 @@ void startOrganizing (int *p,int comeco, int meio_array, int final){
 
     printf("\n\nVetor Criado:\n");
       for (int i = 0;  i < tam_array; i++){
-        printf("%1d ", pOrd[i]);
+        printf("%1d ", p[i]);
       }
+
+      free(pOrd);
 
 }
 
