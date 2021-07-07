@@ -73,13 +73,13 @@ int * createArray(int *p, int tam_array){
    int i;
    p = (int *)(calloc(tam_array , (sizeof(int))));
       if (p == NULL){
-         printf("Memória Insuficiente, encerrando o programa...");
+         printf("Memória Insuficiente, encerrando o programa...\n");
          system("pause");
          exit(1);
          }
    
       for (i = 0; i < tam_array; i++){
-         p[i] = rand() % 11;
+         p[i] = rand() % 10;
       }
     printf("\n\nVetor Criado:\n");
       for (int i = 0;  i < tam_array; i++){
