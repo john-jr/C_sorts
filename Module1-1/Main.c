@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <math.h>
-#include <time.h>
+
 
 int * createArray(int *, int);
 
@@ -35,11 +35,11 @@ void WinMain(){
     scanf("%d",&escolha_Intmodord);
     //  }while(escolha_Intmodord > 5 && escolha_Intmodord < 0 || isalpha(escolha_modOrd));
 
-    clock_t start = clock();
+  
     switch (escolha_Intmodord)
     {
     case 1:
-    bubbleSortArray(createArray(&p, tam_Intarray), tam_Intarray);
+    bubbleSortArray(createArray(&p, tam_Intarray), tam_Intarray);  
         break;
 
     case 2:
@@ -55,21 +55,19 @@ void WinMain(){
         break;    
     
     case 5:
+    quickSort(createArray(&p, tam_Intarray), tam_Intarray);
         break;
     }
 
 
-  clock_t end = clock();
-  tempo_execucao = ((float) (end - start)) / CLOCKS_PER_SEC;
-  printf("\n\nTempo de Execucao %.3f\n\n",tempo_execucao);
-   system("pause");
+   system("\n\npause");
     exit(1);
 
 }
 
 
 
-int * createArray(int *p, int tam_array){
+int* createArray(int *p, int tam_array){
    int i;
    p = (int *)(calloc(tam_array , (sizeof(int))));
       if (p == NULL){
@@ -80,6 +78,7 @@ int * createArray(int *p, int tam_array){
    
       for (i = 0; i < tam_array; i++){
          p[i] = rand() % 10;
+        
       }
     printf("\n\nVetor Criado:\n");
       for (int i = 0;  i < tam_array; i++){

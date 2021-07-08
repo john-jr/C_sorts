@@ -10,8 +10,6 @@ startDividing(p, (0), tam_array-1);
 
 void startDividing(int *p , int comeco, int final){
   int meio_array;
- printf("\nIncio: %d - Fim: %d\n",comeco, final);
-  system("pause");
 
   if(comeco < final){
     meio_array = floor((comeco+final)/2);

@@ -3,11 +3,11 @@
 
 
 void selectionSortArray(int *p, int tam_array){
-   int auxiliar_cont,i,j,pos_menor;
+   int auxiliar_cont,pos_menor;
 
      printf("\n\n--ORDENANDO--");
 
-      for(i = 0; i < tam_array; i++){
+      for(int i = 0; i < tam_array; i++){
       pos_menor = i;
         for(int j = i+1; j < tam_array ; j++){
           if(p[j] < p[pos_menor]){
