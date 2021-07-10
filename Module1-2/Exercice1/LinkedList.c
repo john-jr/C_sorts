@@ -14,6 +14,7 @@ typedef struct Dado dado;
 dado *createNewDado(int);
 dado *addNewDadoAtStart(dado **, dado *);
 dado *findDado(dado *, int);
+dado *findDadobyPos(dado *,int);
 void printLinkedList(dado *);
 void removeDado(dado *, dado**, int);
 void editDado(dado *, int, int);
@@ -34,18 +35,25 @@ void startLinkedList(int qnt_elementos){
        switch ((escolha))
        {
        case 1: ;
-            int novo_valor_adicionado;
-            while (escolha != 0 ||(escolha > 2 && escolha < 0)){
+            int novo_valor_adicionado,posicao_do_novo_valor;
+            do{
             printf("\n1 - Adicionar no ínicio da lista\n2 - Adicionar no Meio da Lista\n\nEscolha:");
-            scanf("%d", escolha);
-            }
+            scanf("%d", &escolha);
+            }while (escolha < 0 && escolha > 2);
             printf("\nDigite o novo valor:");
-             scanf("%d", novo_valor_adicionado);
+             scanf("%d", &novo_valor_adicionado);
              if(escolha == 1){
                  addNewDadoAtStart(head,createNewDado(novo_valor_adicionado));
              }
              else{
-
+                  printf("\nDigite a posição do novo valor:");
+                  scanf("%d", &posicao_do_novo_valor);
+                  dado* dado_antigo = findDadobyPos(head,posicao_do_novo_valor);
+                  if (dado_antigo == NULL){
+                      printf("Posição inválida!");
+                      break;
+                  }
+                  addNewDado(dado_antigo,(createNewDado(novo_valor_adicionado)));
              }
 
            break;
@@ -62,7 +70,7 @@ void startLinkedList(int qnt_elementos){
         case 3: ;
               int valor_removido;
               printf("\nO sistema removerá a primeira aquisição do dado encontrado\nDigite o valor que deseja remover:");
-              scanf("%d",& valor_removido);
+              scanf("%d",&valor_removido);
               removeDado(head,head,valor_removido);
             
            break;
@@ -160,6 +168,19 @@ dado *findDado(dado *head, int valor_pesquisado){
     }
     return NULL;
 }
+
+dado *findDadobyPos(dado *head, int posicao_pesquisada){
+    dado *objeto_auxiliar = head;
+    
+    for(int posicao = 0;objeto_auxiliar->próximo_nó != NULL;posicao++){
+        if(posicao == posicao_pesquisada){
+            return objeto_auxiliar;
+        }
+        objeto_auxiliar = objeto_auxiliar->próximo_nó;
+    }
+    return NULL;
+}
+
 
 
 
