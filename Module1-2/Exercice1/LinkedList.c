@@ -18,21 +18,64 @@ void printLinkedList(dado *);
 
 void startLinkedList(int qnt_elementos){
     dado *head = NULL;
-    dado *objeto_auxiliar;
-    for(int i = 1;i < qnt_elementos;i++){
-
-        if(i == qnt_elementos){
+    dado *objeto_auxiliar = NULL;
+    for(int i = 0;i < qnt_elementos;i++){
             objeto_auxiliar = createNewDado(rand() % 10);
-           addNewDadoAtStart(&head,objeto_auxiliar);
-        }
+            addNewDadoAtStart(&head,objeto_auxiliar);
     }
      printLinkedList(head);
+    int escolha;
+    while (escolha != 0 || (escolha > 3 && escolha < 0))
+    {
+       printf("\n\nO que deseja fazer?\n1 - Adicionar um novo Elemento\n2 - Editar um elemento da lista\n3 - Excluir um elemento da lista\n0 - Sair\n(Qualquer Opcao invalida tambem encerrara o programa)\n\nEscolha:");
+       scanf("%d", escolha);
+       switch ((escolha))
+       {
+       case 1: ;
+            int novo_valor_adicionado;
+            while (escolha != 0 ||(escolha > 2 && escolha < 1)){
+            printf("\n1 - Adicionar no ínicio da lista\n2 - Adicionar no Meio da Lista\n\nEscolha:");
+            scanf("%d", escolha);
+            }
+
+           break;
+
+        case 2: ;
+            int valor_antigo, novo_valor;
+            printf("\nO sistema editará a primeira aquisição do dado encontrado\nDigite o valor que deseja editar:");
+            scanf("%d", valor_antigo);
+            printf("\nDigite o novo valor:");
+             scanf("%d", novo_valor);
+             editDado(head,valor_antigo,novo_valor);
+           break;
+
+        case 3: ;
+              int valor_removido;
+              printf("\nO sistema removerá a primeira aquisição do dado encontrado\nDigite o valor que deseja remover:");
+              scanf("%d",valor_removido);
+              removeDado(head,valor_removido);
+            
+           break;
+       
+       default: ;
+
+           break;
+       }
+    if(escolha != 0 || (escolha > 3 && escolha < 0)){   
+        printLinkedList(head);
+    }
+
+
+    }
+    
+
 }
 
 void printLinkedList(dado *head){
     dado *ponteiro_de_busca = head;
+    printf("\nListagem dos elementos: \n");
     while(ponteiro_de_busca != NULL){
-        printf("%d - ", ponteiro_de_busca->dado_interno);
+        printf("%d  ", ponteiro_de_busca->dado_interno);
         ponteiro_de_busca = ponteiro_de_busca->próximo_nó;
     }
 
@@ -57,13 +100,16 @@ void addNewDado(dado* dado_antigo ,dado* Novodado ){
 
 dado *addNewDadoAtStart(dado **head, dado *Novodado){
     Novodado->próximo_nó = *head;
+    if(*head != NULL){
     (*head)->nó_anterior = Novodado;
+    }
     *head = Novodado;
+    Novodado->nó_anterior = NULL;
     return Novodado;
 }
 
 void removeDado(dado **head, int valor_removido){
-    dado * objeto_auxilar = findDado(head, valor_removido);
+    dado * objeto_auxilar = findDado(*head, valor_removido);
     if(*head == objeto_auxilar){
         *head = objeto_auxilar->próximo_nó;
         if(*head != NULL){
@@ -78,16 +124,17 @@ void removeDado(dado **head, int valor_removido){
     }
     objeto_auxilar->próximo_nó = NULL;
     objeto_auxilar->nó_anterior = NULL;
+    printf("Valor %d removido da lista.\n",&valor_removido);
 }
 
-void editDado(dado *head, int novo_valor){
-        dado * dadoEditável = findDado(head, novo_valor);
+void editDado(dado *head, int valor_antigo,int novo_valor){
+        dado * dadoEditável = findDado(head, valor_antigo);
         if(dadoEditável == NULL){
             printf("Dado não encontrado");
             return;
         }
         dadoEditável->dado_interno = novo_valor;
-        printf("Valor Atualizado!");
+        printf("Dado Atualizado!");
 }
 
 dado *findDado(dado *head, int valor_pesquisado){
