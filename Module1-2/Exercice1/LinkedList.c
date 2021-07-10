@@ -110,7 +110,7 @@ dado *createNewDado(int dado_interno){
 void addNewDado(dado* dado_antigo ,dado* Novodado ){
     Novodado->próximo_nó = dado_antigo->próximo_nó;
     if(Novodado->próximo_nó != NULL){
-        Novodado->nó_anterior->próximo_nó = dado_antigo;
+        Novodado->próximo_nó->nó_anterior = dado_antigo;
     }
     dado_antigo->próximo_nó = Novodado;
     Novodado->nó_anterior = dado_antigo;
