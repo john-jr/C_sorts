@@ -81,11 +81,7 @@ void startLinkedList(int qnt_elementos){
     if(escolha != 0 || (escolha > 3 && escolha < 0)){   
         printLinkedList(head);
     }
-
-
     }
-    
-
 }
 
 void printLinkedList(dado *head){

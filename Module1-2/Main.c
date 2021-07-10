@@ -24,7 +24,7 @@ void WinMain(){
         break;
 
     case 2:
-   
+        startStack(qnt_elementos);
         break;
 
     case 3:
