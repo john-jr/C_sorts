@@ -11,30 +11,34 @@ struct Dado2
 };
 typedef struct Dado2 dado2;
 
-int retirarUltimoDado(dado2 *);
+
 dado2 * createNewDado2(int);
+dado2 * EmpilharDado(dado2 *, dado2 *);
+dado2 * retirarUltimoDado(dado2 *);
 
 void startStack(int qnt_elementos){
     dado2 * head = NULL;
     for(int i = 0; i < qnt_elementos; i++){
-        EmpilharDado(head,createNewDado (i+1));
+       head = EmpilharDado(head,createNewDado (i+1));
     }
     printStack(head);
 
 }
 
-int retirarUltimoDado(dado2* head){
+dado2 * retirarUltimoDado(dado2* head){
     if(head == NULL){
         return -1;
     }
-    int dado_interno = head->dado_interno;
     head = head->próximo_nó;
-    return dado_interno;
+    
+    return head;
 }
 
-void EmpilharDado(dado2 * head,dado2 * Novodado){
+dado2 * EmpilharDado(dado2 * head,dado2 * Novodado){
     Novodado->próximo_nó = head;
     head = Novodado;
+
+   return head;
 }
 
 dado2 *createNewDado2(int dado_interno){
@@ -47,7 +51,7 @@ dado2 *createNewDado2(int dado_interno){
 void printStack(dado2 *head){
     int dado_interno;
         while(dado_interno != -1){
-        dado_interno = retirarUltimoDado(head);
-        printf("%d  ",dado_interno);
+        printf("%d  ",head->dado_interno);
+        head = retirarUltimoDado(head);
         }
 }

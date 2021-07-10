@@ -1,0 +1,2 @@
+
+        startLinkedList(qnt_e
