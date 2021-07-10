@@ -72,7 +72,6 @@ void startLinkedList(int qnt_elementos){
               printf("\nO sistema removerá a primeira aquisição do dado encontrado\nDigite o valor que deseja remover:");
               scanf("%d",&valor_removido);
               removeDado(head,head,valor_removido);
-            
            break;
        
        default: ;
