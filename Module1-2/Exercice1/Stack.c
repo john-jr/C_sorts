@@ -19,7 +19,7 @@ dado2 * retirarUltimoDado(dado2 *);
 void startStack(int qnt_elementos){
     dado2 * head = NULL;
     for(int i = 0; i < qnt_elementos; i++){
-       head = EmpilharDado(head,createNewDado (i+1));
+       head = EmpilharDado(head,createNewDado2 (i+1));
     }
     printStack(head);
 
@@ -30,7 +30,6 @@ dado2 * retirarUltimoDado(dado2* head){
         return -1;
     }
     head = head->próximo_nó;
-    
     return head;
 }
 

@@ -28,13 +28,13 @@ void WinMain(){
         break;
 
     case 3:
-    
+        StartQueue(qnt_elementos);
         break;
     }
 
 
-    
-   system("\n\npause");
+    printf("\n\n");
+   system("pause");
     exit(1);
 
 }
