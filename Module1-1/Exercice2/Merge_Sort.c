@@ -32,11 +32,11 @@ void startOrganizing (int *p,int comeco, int meio_array, int final){
     int pont_direito = meio_array+1;
     int fim_esquerdo = 0, fim_direito = 0;
 
-    printf("\n\nVetor Criado:\n");
-      for (int i = 0;  i < tam_array; i++){
-        printf("%1d ", p[i]);
-      }
-      system("pause");
+   // printf("\n\nVetor Criado:\n");
+   //  for (int i = 0;  i < tam_array; i++){
+    //    printf("%1d ", p[i]);
+    //  }
+     // system("pause");
 
     int * pOrd = (int *)(malloc(tam_array *(sizeof(int))));
       if (pOrd == NULL){
@@ -47,8 +47,6 @@ void startOrganizing (int *p,int comeco, int meio_array, int final){
 
       for(int i = 0; i < tam_array; i++){
         if(fim_esquerdo == 0 && fim_direito == 0){
-           printf("\nEsquerdo: %d -  Direito: %d\n",p[pont_esquerdo+1],p[pont_direito+1]);
-           system("pause");
           if(p[pont_esquerdo] < p[pont_direito]){
             pOrd[i] = p[pont_esquerdo++];
           } else {
