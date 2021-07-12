@@ -11,6 +11,15 @@ struct Dado4
 };
 typedef struct Dado4 dado4;
 
+/*struct Tree
+{
+    dado4 * dado;
+    int nivel;
+    int tamanho_total;
+};
+typedef struct Tree binaryTree;*/
+
+
 dado4 *createNewDado4(int);
 
 void startBinaryTree(int qnt_elementos)
@@ -27,6 +36,10 @@ void startBinaryTree(int qnt_elementos)
             mountBinaryTree(&dado_raiz, rand() % (qnt_elementos + 5));
         }
     }
+
+    printf("%d", dado_raiz->dado_interno);
+    printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pós-ordem\n3- Em Ordem\n\nEscolha: ");
+
 }
 
 dado4 *createNewDado4(int dado_interno)
@@ -203,7 +216,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
     }
 }
 
-void printInOrder(dado4 *dado_raiz)
+void printInOrder(dado4 *dado_raiz) //In order is left -> top -> right
 {
     if (dado_raiz != NULL)
     {
@@ -212,7 +225,7 @@ void printInOrder(dado4 *dado_raiz)
         printInOrder(dado_raiz->próximo_nó_direito);
     }
 }
-void printPostOrder(dado4 *dado_raiz)
+void printPostOrder(dado4 *dado_raiz)//Post Order is right -> left -> top
 {
     if (dado_raiz != NULL)
     {
@@ -221,12 +234,21 @@ void printPostOrder(dado4 *dado_raiz)
         printf("%d ", dado_raiz->dado_interno);
     }
 }
-void printPreOrder(dado4 *dado_raiz)
+void printPreOrder(dado4 *dado_raiz) //Pre-order is top -> left -> right
 {
     if (dado_raiz != NULL)
     {
         printf("%d ", dado_raiz->dado_interno);
         printPreOrder(dado_raiz->próximo_nó_esquerdo);
         printPreOrder(dado_raiz->próximo_nó_direito);
+    }
+}
+
+void printLeftLook(dado4 *dado_raiz)
+{
+    if (dado_raiz != NULL)
+    {
+        printf("%d ", dado_raiz->dado_interno);
+        printLeftLook(dado_raiz->próximo_nó_esquerdo);
     }
 }
