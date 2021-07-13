@@ -19,13 +19,12 @@ typedef struct Dado4 dado4;
 };
 typedef struct Tree binaryTree;*/
 
-
 dado4 *createNewDado4(int);
 
 void startBinaryTree(int qnt_elementos)
 {
     dado4 *dado_raiz = NULL;
-    int escolha;
+    int escolha, numero_pesquisado;
     for (int i = qnt_elementos; i > 0; i--)
     {
         if (i == qnt_elementos)
@@ -38,36 +37,63 @@ void startBinaryTree(int qnt_elementos)
         }
     }
 
-    printf("%d", dado_raiz->dado_interno);
-    printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pós-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
-    scanf("%d",&escolha);
-    switch (escolha)
+    while (escolha != 0)
     {
-    case 1:
-        printPreOrder(dado_raiz);
-        break;
-    
-    case 2:
-        printPostOrder(dado_raiz);
-        break;
-    case 3:
-        printInOrder(dado_raiz);
-        break;
-    case 4:
-        printLeftLook(dado_raiz);
-        break;
+        printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pos-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
+        scanf("%d", &escolha);
+        switch (escolha)
+        {
+        case 1:
+            printPreOrder(dado_raiz);
+            break;
 
-    default:
+        case 2:
+            printPostOrder(dado_raiz);
+            break;
+        case 3:
+            printInOrder(dado_raiz);
+            break;
+        case 4:
+            printLeftLook(dado_raiz);
+            break;
 
-        break;
+        default:
+
+            break;
+        }
+
+        if (escolha != 0)
+        {
+            printf("\nO que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
+            scanf("%d", &escolha);
+            if (escolha == 1)
+            {
+                printf("\nDigite o número a ser pesquisado: ");
+                scanf("%d", &numero_pesquisado);
+                if (findDado4(dado_raiz, numero_pesquisado) == 0)
+                {
+                    printf("%d não existe na árvore", numero_pesquisado);
+                }
+                else
+                {
+                    printf("%d existe na árvore", numero_pesquisado);
+                }
+            }
+            else if (escolha == 2)
+            {
+                printf("\nDigite o número a ser excluído: ");
+                scanf("%d", &numero_pesquisado);
+                if (RemoveDado4(dado_raiz, numero_pesquisado) == 0)
+                {
+                    printf("%d não existe na árvore", numero_pesquisado);
+                }
+                else
+                {
+                    printf("O primeiro %d encontrado foi excluído da árvore", numero_pesquisado);
+                }
+            }
+        }
     }
-
-    printf("O que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
-    scanf("%d",&escolha);
-
-
-
-
 }
 
 dado4 *createNewDado4(int dado_interno)
@@ -103,7 +129,7 @@ int findDado4(dado4 *dado_raiz, int valor_pesquisado)
     {
         return 0;
     }
-    if (dado_raiz->dado_interno = valor_pesquisado)
+    if (dado_raiz->dado_interno == valor_pesquisado)
     {
         return 1;
     }
@@ -128,14 +154,14 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
     }
     while (dado_raiz != NULL)
     {
-        if (dado_raiz->dado_interno = valor_pesquisado)
+        if (dado_raiz->dado_interno == valor_pesquisado)
         {
-            if (dado_raiz->próximo_nó_direito != NULL)    // Caso o dado raiz tenha apenas filhos maiores que ele
+            if (dado_raiz->próximo_nó_direito != NULL) // Caso o dado raiz tenha apenas filhos maiores que ele
             {
                 dado_substituto = dado_raiz->próximo_nó_direito;
                 dado_paisubstituto = dado_raiz;
                 while (dado_substituto->próximo_nó_esquerdo != NULL) // <-- Busca o menor dado a partir do dado substituto
-                { 
+                {
                     dado_paisubstituto = dado_substituto;
                     dado_substituto = dado_substituto->próximo_nó_esquerdo;
                 }
@@ -164,14 +190,12 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 {
                     dado_paisubstituto->próximo_nó_esquerdo = NULL;
                 }
-
-                
             }
             else if (dado_raiz->próximo_nó_esquerdo != NULL) // Caso o dado raiz tenha apenas filhos menores que ele
             {
                 dado_substituto = dado_raiz->próximo_nó_esquerdo;
                 dado_paisubstituto = dado_raiz;
-                while (dado_substituto->próximo_nó_direito != NULL)  // <-- Busca o maior dado a partir do dado substituto
+                while (dado_substituto->próximo_nó_direito != NULL) // <-- Busca o maior dado a partir do dado substituto
                 {
                     dado_paisubstituto = dado_substituto;
                     dado_substituto = dado_substituto->próximo_nó_direito;
@@ -201,9 +225,6 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 {
                     dado_paisubstituto->próximo_nó_esquerdo = NULL;
                 }
-
-
-                
             }
             else // Caso o dado raiz não tenha nó filhos..
             {
@@ -224,7 +245,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 }
             }
 
-            return 0;
+            return 1;
         }
 
         if (dado_raiz->dado_interno < valor_pesquisado)
@@ -239,7 +260,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
         }
         if (dado_raiz == NULL)
         {
-            return 1;
+            return 0;
         }
     }
 }
@@ -253,7 +274,7 @@ void printInOrder(dado4 *dado_raiz) //In order is left -> top -> right
         printInOrder(dado_raiz->próximo_nó_direito);
     }
 }
-void printPostOrder(dado4 *dado_raiz)//Post Order is right -> left -> top
+void printPostOrder(dado4 *dado_raiz) //Post Order is right -> left -> top
 {
     if (dado_raiz != NULL)
     {
