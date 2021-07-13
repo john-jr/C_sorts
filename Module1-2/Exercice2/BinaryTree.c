@@ -25,6 +25,7 @@ dado4 *createNewDado4(int);
 void startBinaryTree(int qnt_elementos)
 {
     dado4 *dado_raiz = NULL;
+    int escolha;
     for (int i = qnt_elementos; i > 0; i--)
     {
         if (i == qnt_elementos)
@@ -38,7 +39,34 @@ void startBinaryTree(int qnt_elementos)
     }
 
     printf("%d", dado_raiz->dado_interno);
-    printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pós-ordem\n3- Em Ordem\n\nEscolha: ");
+    printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pós-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
+    scanf("%d",&escolha);
+    switch (escolha)
+    {
+    case 1:
+        printPreOrder(dado_raiz);
+        break;
+    
+    case 2:
+        printPostOrder(dado_raiz);
+        break;
+    case 3:
+        printInOrder(dado_raiz);
+        break;
+    case 4:
+        printLeftLook(dado_raiz);
+        break;
+
+    default:
+
+        break;
+    }
+
+    printf("O que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
+    scanf("%d",&escolha);
+
+
+
 
 }
 
