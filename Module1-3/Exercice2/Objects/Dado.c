@@ -1,5 +1,5 @@
-#include "../../Module1-3/Errors.c";
-#include "../../Module1-3/Exercice2/Arvore.c";
+#include "Arvore.c";
+#include "../Errors.c";
 
 
 #include <stdio.h>
@@ -7,20 +7,21 @@
 #include <stdbool.h>
 #include <math.h>
 
-struct dado_satelite
-{
-    int dado_interno;
-    dado * proximo_no_esquerda;
-    dado * proxino_no_direta;
-};
-typedef struct dado_satelite dado;
 
 
 bool isDadoCreated(dado*);
 bool findDado(dado*,int);
 
-struct dado * createNewDado(int dado_interno){
-    dado * Novodado = malloc(sizeof(dado)); 
+struct dado_satelite
+{
+    int dado_interno;
+    dado_da_arvore * proximo_no_esquerda;
+    dado_da_arvore * proxino_no_direta;
+};
+typedef struct dado_satelite dado_da_arvore;
+
+struct dado_da_arvore * createNewDado(int dado_interno){
+   dado_da_arvore * Novodado = malloc(sizeof(dado)); 
     if(isDadoCreated(Novodado) == true){
         Novodado->dado_interno = dado_interno;
     }
