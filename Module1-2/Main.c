@@ -26,7 +26,7 @@ void WinMain(){
         break;
 
     case 3:
-       
+       StartQueue();
         break;
 
     case 4:

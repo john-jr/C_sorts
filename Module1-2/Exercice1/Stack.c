@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include <math.h>
 
 struct Dado2
@@ -10,20 +11,45 @@ struct Dado2
     
 };
 typedef struct Dado2 dado2;
-/*
+struct Stack
+{
+    dado2 * topo;
+};
+typedef struct Stack pilha;
 
 dado2 * createNewDado2(int);
 dado2 * EmpilharDado(dado2 *, dado2 *);
 dado2 * retirarUltimoDado(dado2 *);
+pilha * createNewPilha();
+bool isPilhaCreated(pilha*);
 
 void startStack(int qnt_elementos){
-    dado2 * head = NULL;
-    for(int i = 0; i < qnt_elementos; i++){
+    
+    pilha * NovaPilha = createNewPilha();
+    dado4 * NovoDado;
+    if(isPilhaCreated(NovaPilha)){
+          int input_user=0, confirm_queue=0;
+  
        head = EmpilharDado(head,createNewDado2 (i+1));
-    }
+  
     printStack(head);
+    }
 
 }
+
+pilha * createNewPilha(){
+    pilha * NovaPilha = malloc(sizeof(pilha));
+    return NovaPilha;
+}
+bool isPilhaCreated(pilha * novaPilha){
+    if(novaPilha == NULL){
+         printf("Error #2: Não foi possível alocar memória para a nova pilha\nTente novamente mais tarde\n");
+    }
+    else{
+        return true;
+    }
+}
+
 
 dado2 * retirarUltimoDado(dado2* head){
     if(head == NULL){
