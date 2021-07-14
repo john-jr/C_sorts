@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool isDadoCreated(dado*);
+bool isDado_Created(dado*);
 bool findDado(dado*,int);
 bool removeDado(dado*,int);
 

@@ -21,7 +21,7 @@ typedef struct Tree binaryTree;
 binaryTree *createNewArvore();
 bool isArvoreCreated(binaryTree *);
 dado4 *createNewDado4(int);
-bool isDadoCreated(dado4 *);
+//bool isDadoCreated(dado4 *);
 
 void startBinaryTree()
 {
@@ -143,7 +143,7 @@ void receiveDataFromUserToInsertIntoTree(binaryTree *arvore)
         printf("\nDigite o nó: ");
         scanf("%d", &input_user);
         dado = createNewDado4(input_user);
-        if (isDadoCreated(dado) == true)
+        if (/*isDadoCreated(dado) ==*/ true)
         {
             if (arvore->raiz == NULL)
             {

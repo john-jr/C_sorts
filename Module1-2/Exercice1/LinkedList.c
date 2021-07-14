@@ -14,114 +14,119 @@ typedef struct Dado dado;
 
 struct List
 {
-    dado * head;
+    dado *head;
 };
 typedef struct List linkedList;
 
-
 dado *createNewDado(int);
 dado *addNewDadoAtStart(dado **, dado *);
+linkedList *createLinkedList();
+bool isLinkedListCreated(linkedList *);
+dado *createNewDado(int);
+//bool isDadoCreated4(dado *);
 dado *findDado(dado *, int);
 dado *findDadobyPos(dado *, int);
 void printLinkedList(dado *);
-void removeDado(dado *, dado **, int);
+void removeDado(dado **, int);
 void editDado(dado *, int, int);
 
 void startLinkedList()
 {
-   linkedList * lista = createLinkedList();
-   if(isLinkedListCreated(lista)){
-    dado *dado = NULL;
+    linkedList *lista = createLinkedList();
+    if (isLinkedListCreated(lista))
+    {
+        dado *novoDado = NULL;
+        dado *dado_atual = NULL;
 
-    int input_user, confirm_linkedlist;
-    while(confirm_linkedlist != 2){
-        if(lista->head == NULL){
-          
+        int input_user, confirm_linkedlist;
+        while (confirm_linkedlist != 2)
+        {
             printf("\nDigite um valor: ");
             scanf("%d", &input_user);
-            dado = createNewDado(input_user);
-            if(isDadoCreated(dado) == true){
-                if(lista->head == NULL){
-                    lista->head = dado;
-                    addNewDadoAtStart(&(lista->head),dado);
-                }
-                else{
-                    
-                }
-            }
-        }
+            novoDado = createNewDado(input_user);
 
-
-    }
-        //addNewDadoAtStart(&head, objeto_auxiliar);
-    
-  
-    /*
-    int escolha;
-    while (escolha != 0 || (escolha > 3 && escolha < 0))
-    {
-        printf("\n\nO que deseja fazer?\n1 - Adicionar um novo Elemento\n2 - Editar um elemento da lista\n3 - Excluir um elemento da lista\n0 - Sair\n(Qualquer Opcao invalida tambem encerrara o programa)\n\nEscolha:");
-        scanf("%d", &escolha);
-        switch ((escolha))
-        {
-        case 1:;
-            int novo_valor_adicionado, posicao_do_novo_valor;
-            do
+            if (/*isDadoCreated4(dado) ==*/true)
             {
-                printf("\n1 - Adicionar no ínicio da lista\n2 - Adicionar no Meio da Lista\n\nEscolha:");
-                scanf("%d", &escolha);
-            } while (escolha < 0 && escolha > 2);
-            printf("\nDigite o novo valor:");
-            scanf("%d", &novo_valor_adicionado);
-            if (escolha == 1)
-            {
-                addNewDadoAtStart(head, createNewDado(novo_valor_adicionado));
-            }
-            else
-            {
-                printf("\nDigite a posição do novo valor:");
-                scanf("%d", &posicao_do_novo_valor);
-                dado *dado_antigo = findDadobyPos(head, posicao_do_novo_valor);
-                if (dado_antigo == NULL)
+                if (lista->head == NULL)
                 {
-                    printf("Posição inválida!");
-                    break;
+                    lista->head = addNewDadoAtStart(&(lista->head), novoDado);
                 }
-                addNewDado(dado_antigo, (createNewDado(novo_valor_adicionado)));
+                else
+                {
+                    addNewDado(dado_atual, novoDado);
+                }
+                dado_atual = novoDado;
+                printf("Dado inserido na lista.\n\n Deseja inserir mais dados?\n1 - Sim, desejo inserir mais dados\n2 - Não,confirmar a lista\nEscolha: ");
+                scanf("%d", &confirm_linkedlist);
             }
-
-            break;
-
-        case 2:;
-            int valor_antigo, novo_valor;
-            printf("\nO sistema editará a primeira aquisição do dado encontrado\nDigite o valor que deseja editar:");
-            scanf("%d", &valor_antigo);
-            printf("\nDigite o novo valor:");
-            scanf("%d", &novo_valor);
-            editDado(head, valor_antigo, novo_valor);
-            break;
-
-        case 3:;
-            int valor_removido;
-            printf("\nO sistema removerá a primeira aquisição do dado encontrado\nDigite o valor que deseja remover:");
-            scanf("%d", &valor_removido);
-            removeDado(head, head, valor_removido);
-            break;
-
-        default:;
-
-            break;
         }
-        if (escolha != 0 || (escolha > 3 && escolha < 0))
+        printLinkedList(lista->head);
+        int escolha;
+        while (escolha != 0 || (escolha > 3 && escolha < 0))
         {
-            printLinkedList(head);
+            printf("\n\nO que deseja fazer?\n1 - Adicionar um novo Elemento\n2 - Editar um elemento da lista\n3 - Excluir um elemento da lista\n0 - Sair\n(Qualquer Opcao invalida tambem encerrara o programa)\n\nEscolha:");
+            scanf("%d", &escolha);
+            switch ((escolha))
+            {
+            case 1:;
+                int novo_valor_adicionado, posicao_do_novo_valor;
+                do
+                {
+                    printf("\n1 - Adicionar no ínicio da lista\n2 - Adicionar no Meio da Lista\n\nEscolha:");
+                    scanf("%d", &escolha);
+                } while (escolha < 0 && escolha > 2);
+                printf("\nDigite o novo valor:");
+                scanf("%d", &novo_valor_adicionado);
+                novoDado = createNewDado(novo_valor_adicionado);
+                if (/*isDadoCreated4(dado) ==*/true)
+                {
+                    if (escolha == 1)
+                    {
+                        lista->head = addNewDadoAtStart(&(lista->head), novoDado);
+                    }
+                    else
+                    {
+                        printf("\nDigite a posição do novo valor:");
+                        scanf("%d", &posicao_do_novo_valor);
+                        dado *dado_antigo = findDadobyPos(lista->head, posicao_do_novo_valor);
+                        if (dado_antigo == NULL)
+                        {
+                            printf("Posição inválida!");
+                            break;
+                        }
+                        addNewDado(dado_antigo, (createNewDado(novo_valor_adicionado)));
+                    }
+                }
+
+                break;
+
+            case 2:;
+                int valor_antigo, novo_valor;
+                printf("\nO sistema editará a primeira aquisição do dado encontrado\nDigite o valor que deseja editar:");
+                scanf("%d", &valor_antigo);
+                printf("\nDigite o novo valor:");
+                scanf("%d", &novo_valor);
+                editDado(lista->head, valor_antigo, novo_valor);
+                break;
+
+            case 3:;
+                int valor_removido;
+                printf("\nO sistema removerá a primeira aquisição do dado encontrado\nDigite o valor que deseja remover:");
+                scanf("%d", &valor_removido);
+                removeDado(&(lista->head), valor_removido);
+                break;
+
+            default:;
+
+                break;
+            }
+            if (escolha != 0 || (escolha > 3 && escolha < 0))
+            {
+                printLinkedList(lista->head);
+            }
         }
-    } */
-   }
+    }
 }
-
-
-
 
 void printLinkedList(dado *head)
 {
@@ -162,7 +167,7 @@ dado *createNewDado(int dado_interno)
     return Novodado;
 }
 
-bool isDadoCreated(dado *dado)
+/*bool isDadoCreated(dado *dado)
 {
     if (dado == NULL)
     {
@@ -173,9 +178,7 @@ bool isDadoCreated(dado *dado)
         return true;
     }
 }
-
-
-
+*/
 
 void addNewDado(dado *dado_antigo, dado *Novodado)
 {
@@ -200,15 +203,15 @@ dado *addNewDadoAtStart(dado **head, dado *Novodado)
     return Novodado;
 }
 
-void removeDado(dado *head, dado **Phead, int valor_removido)
+void removeDado(dado **head, int valor_removido)
 {
-    dado *objeto_auxilar = findDado(head, valor_removido);
-    if (*Phead == objeto_auxilar)
+    dado *objeto_auxilar = findDado(*head, valor_removido);
+    if ((*head) == objeto_auxilar)
     {
-        *Phead = objeto_auxilar->próximo_nó;
-        if (*Phead != NULL)
+        (*head) = objeto_auxilar->próximo_nó;
+        if ((*head) != NULL)
         {
-            (*Phead)->nó_anterior = NULL;
+            (*head)->nó_anterior = NULL;
         }
         return;
     }
@@ -231,13 +234,11 @@ void editDado(dado *head, int valor_antigo, int novo_valor)
     if (dadoEditável == NULL)
     {
         printf("Dado não encontrado");
-        system("pause");
         return;
     }
     dadoEditável->dado_interno = novo_valor;
-    printf("Dado Atualizado!");
-    system("pause");
-}
+    printf("Dado Atualizado!\n");
+}   
 
 dado *findDado(dado *head, int valor_pesquisado)
 {

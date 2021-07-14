@@ -10,7 +10,7 @@ struct dado * createNewDado(int dado_interno){
 
 };
 
-bool isDadoCreated(dado * dado){
+bool isDado_Created(dado * dado){
     if(dado == NULL){
         errorMessages(1);
     }
