@@ -18,7 +18,7 @@ void WinMain(){
      switch (escolha_modeloEstrutura)
     {
          case 1:
-        
+        startLinkedList();
         break;
 
     case 2:

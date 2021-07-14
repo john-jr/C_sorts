@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include <math.h>
 
 struct Dado
@@ -11,7 +12,13 @@ struct Dado
 };
 typedef struct Dado dado;
 
-/*
+struct List
+{
+    dado * head;
+};
+typedef struct List linkedList;
+
+
 dado *createNewDado(int);
 dado *addNewDadoAtStart(dado **, dado *);
 dado *findDado(dado *, int);
@@ -20,16 +27,36 @@ void printLinkedList(dado *);
 void removeDado(dado *, dado **, int);
 void editDado(dado *, int, int);
 
-void startLinkedList(int qnt_elementos)
+void startLinkedList()
 {
-    dado *head = NULL;
-    dado *objeto_auxiliar = NULL;
-    for (int i = 0; i < qnt_elementos; i++)
-    {
-        objeto_auxiliar = createNewDado(rand() % 10);
-        addNewDadoAtStart(&head, objeto_auxiliar);
+   linkedList * lista = createLinkedList();
+   if(isLinkedListCreated(lista)){
+    dado *dado = NULL;
+
+    int input_user, confirm_linkedlist;
+    while(confirm_linkedlist != 2){
+        if(lista->head == NULL){
+          
+            printf("\nDigite um valor: ");
+            scanf("%d", &input_user);
+            dado = createNewDado(input_user);
+            if(isDadoCreated(dado) == true){
+                if(lista->head == NULL){
+                    lista->head = dado;
+                    addNewDadoAtStart(&(lista->head),dado);
+                }
+                else{
+                    
+                }
+            }
+        }
+
+
     }
-    printLinkedList(head);
+        //addNewDadoAtStart(&head, objeto_auxiliar);
+    
+  
+    /*
     int escolha;
     while (escolha != 0 || (escolha > 3 && escolha < 0))
     {
@@ -89,8 +116,12 @@ void startLinkedList(int qnt_elementos)
         {
             printLinkedList(head);
         }
-    }
+    } */
+   }
 }
+
+
+
 
 void printLinkedList(dado *head)
 {
@@ -103,6 +134,25 @@ void printLinkedList(dado *head)
     }
 }
 
+linkedList *createLinkedList()
+{
+    linkedList *Novalista = (linkedList *)malloc(sizeof(linkedList));
+    return Novalista;
+};
+
+bool isLinkedListCreated(linkedList *Novalista)
+{
+    if (Novalista == NULL)
+    {
+        printf("Error #2: Não foi possível alocar memória para a nova lista encadeada\nTente novamente mais tarde\n");
+    }
+    else
+    {
+        Novalista->head = NULL;
+        return true;
+    }
+}
+
 dado *createNewDado(int dado_interno)
 {
     dado *Novodado = malloc(sizeof(dado));
@@ -111,6 +161,21 @@ dado *createNewDado(int dado_interno)
     Novodado->nó_anterior = NULL;
     return Novodado;
 }
+
+bool isDadoCreated(dado *dado)
+{
+    if (dado == NULL)
+    {
+        printf("Error #1: Não foi possível alocar memória para o novo dado\nTente novamente mais tarde\n");
+    }
+    else
+    {
+        return true;
+    }
+}
+
+
+
 
 void addNewDado(dado *dado_antigo, dado *Novodado)
 {
@@ -202,4 +267,4 @@ dado *findDadobyPos(dado *head, int posicao_pesquisada)
         objeto_auxiliar = objeto_auxiliar->próximo_nó;
     }
     return NULL;
-}*/
+}
