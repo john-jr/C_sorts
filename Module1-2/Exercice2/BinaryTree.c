@@ -7,7 +7,6 @@
 struct Dado4
 {
     int dado_interno;
-    int nivel;
     struct Dado4 *próximo_nó_esquerdo;
     struct Dado4 *próximo_nó_direito;
 };
@@ -16,54 +15,37 @@ typedef struct Dado4 dado4;
 struct Tree
 {
     dado4 *raiz;
-    int altura;
 };
 typedef struct Tree binaryTree;
 
+binaryTree *createNewArvore();
+bool isArvoreCreated(binaryTree *);
 dado4 *createNewDado4(int);
+bool isDadoCreated(dado4 *);
 
-void startBinaryTree(int qnt_elementos)
+void startBinaryTree()
 {
-    dado4 *dado = NULL;
     binaryTree *arvore = createNewArvore();
-
     if (isArvoreCreated(arvore))
     {
-        int escolha, numero_pesquisado, input_user;
-        printf("\nDigite o nó: ");
-        scanf("%d", input_user);
-        dado = createNewDado4(input_user);
-        if (isDadoCreated(dado))
+        int escolha, numero_pesquisado;
+        receiveDataFromUserToInsertIntoTree(arvore);
+        // Imprime a árvore do jeito que o usuário quiser
+        while (escolha != 0)
         {
-
-            if (arvore->raiz == NULL)
-            {
-                arvore->raiz = dado;
-            }
-            else
-            {
-                insertIntoTree(arvore->raiz, dado);
-            }
-        }
-
-        /*while (escolha != 0)
-        {
-            printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pos-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
+            printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pos-ordem\n3- Em Ordem\n0 - Cancelar e sair\n\nEscolha: ");
             scanf("%d", &escolha);
             switch (escolha)
             {
             case 1:
-                printPreOrder(dado_raiz);
+                printPreOrder(arvore->raiz);
                 break;
 
             case 2:
-                printPostOrder(dado_raiz);
+                printPostOrder(arvore->raiz);
                 break;
             case 3:
-                printInOrder(dado_raiz);
-                break;
-            case 4:
-                printLeftLook(dado_raiz);
+                printInOrder(arvore->raiz);
                 break;
 
             default:
@@ -73,26 +55,26 @@ void startBinaryTree(int qnt_elementos)
 
             if (escolha != 0)
             {
-                printf("\nO que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
+                printf("\n\nO que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n4 - Adicionar um novo numero\n0 - Sair\n\nEscolha:");
                 scanf("%d", &escolha);
-                if (escolha == 1)
+                switch (escolha)
                 {
+                case 1:
                     printf("\nDigite o número a ser pesquisado: ");
                     scanf("%d", &numero_pesquisado);
-                    if (findDado4(dado, numero_pesquisado) == 0)
+                    if (findDado4((arvore->raiz), numero_pesquisado) == 0)
                     {
-                        printf("%d não existe na árvore", numero_pesquisado);
+                        printf("%d não existe na árvore\n\n", numero_pesquisado);
                     }
                     else
                     {
-                        printf("%d existe na árvore", numero_pesquisado);
+                        printf("%d existe na árvore\n\n", numero_pesquisado);
                     }
-                }
-                else if (escolha == 2)
-                {
+                    break;
+                case 2:
                     printf("\nDigite o número a ser excluído: ");
                     scanf("%d", &numero_pesquisado);
-                    if (RemoveDado4(dado, numero_pesquisado) == 0)
+                    if (RemoveDado4(&(arvore->raiz), numero_pesquisado) == 0)
                     {
                         printf("%d não existe na árvore", numero_pesquisado);
                     }
@@ -100,9 +82,13 @@ void startBinaryTree(int qnt_elementos)
                     {
                         printf("O primeiro %d encontrado foi excluído da árvore", numero_pesquisado);
                     }
+                    break;
+                case 3:
+                   receiveDataFromUserToInsertIntoTree(arvore);
+                    break;
                 }
             }
-        }*/
+        }
     }
 }
 
@@ -115,7 +101,7 @@ dado4 *createNewDado4(int dado_interno)
     return Novodado;
 }
 
-bool isDadoCreated(dado *dado)
+bool isDadoCreated(dado4 *dado)
 {
     if (dado == NULL)
     {
@@ -142,46 +128,72 @@ bool isArvoreCreated(binaryTree *Novaarvore)
     else
     {
         Novaarvore->raiz = NULL;
-        Novaarvore->altura = 0;
         return true;
     }
 }
 
-int insertIntoTree(dado4 ** dado_raiz, dado4 *dado)
+void receiveDataFromUserToInsertIntoTree(binaryTree *arvore)
 {
+    dado4 *dado = NULL;
+    int input_user, confirm_tree;
 
-    if (dado_raiz == NULL)
+    //Adiciona dados na árvore até o usuário não querer mais
+    while (confirm_tree != 2)
     {
-      dado_raiz = dado;
-        return -1;
-    }
-    if (dado->dado_interno < dado_raiz->dado_interno)
-    {
-        return insertIntoTree(&(dado_raiz->próximo_nó_esquerdo), dado);
-    }
-    else
-    {
-        return insertIntoTree(&(dado_raiz->próximo_nó_direito), dado);
+        printf("\nDigite o nó: ");
+        scanf("%d", &input_user);
+        dado = createNewDado4(input_user);
+        if (isDadoCreated(dado) == true)
+        {
+            if (arvore->raiz == NULL)
+            {
+                arvore->raiz = dado;
+            }
+            else
+            {
+                insertIntoTree(&(arvore->raiz), dado);
+            }
+            printf("Dado inserido na árvore.\n\n Deseja inserir mais dados?\n1 - Sim, desejo inserir mais dados\n2 - Não,confirmar a árvore\nEscolha: ");
+            scanf("%d", &confirm_tree);
+        }
     }
 }
 
-int findDado4(dado4 *dado_raiz, int valor_pesquisado)
+int insertIntoTree(dado4 **dado_raiz_atual, dado4 *dado)
 {
-    if (dado_raiz == NULL)
+    dado4 *objeto_auxiliar = *dado_raiz_atual;
+    if (objeto_auxiliar == NULL)
     {
-        return 0;
+        (*dado_raiz_atual) = dado;
+        return -1;
     }
-    if (dado_raiz->dado_interno == valor_pesquisado)
+    if (dado->dado_interno < objeto_auxiliar->dado_interno)
     {
-        return 1;
-    }
-    if (valor_pesquisado < dado_raiz->dado_interno)
-    {
-        return findDado4(dado_raiz->próximo_nó_esquerdo, valor_pesquisado);
+        return insertIntoTree(&(objeto_auxiliar->próximo_nó_esquerdo), dado);
     }
     else
     {
-        return findDado4(dado_raiz->próximo_nó_direito, valor_pesquisado);
+        return insertIntoTree(&(objeto_auxiliar->próximo_nó_direito), dado);
+    }
+}
+
+int findDado4(dado4 *dado_raiz_atual, int valor_pesquisado)
+{
+    if (dado_raiz_atual == NULL)
+    {
+        return 0;
+    }
+    if (dado_raiz_atual->dado_interno == valor_pesquisado)
+    {
+        return 1;
+    }
+    if (valor_pesquisado < dado_raiz_atual->dado_interno)
+    {
+        return findDado4(dado_raiz_atual->próximo_nó_esquerdo, valor_pesquisado);
+    }
+    else
+    {
+        return findDado4(dado_raiz_atual->próximo_nó_direito, valor_pesquisado);
     }
 }
 
@@ -332,14 +344,5 @@ void printPreOrder(dado4 *dado_raiz) //Pre-order is top -> left -> right
         printf("%d ", dado_raiz->dado_interno);
         printPreOrder(dado_raiz->próximo_nó_esquerdo);
         printPreOrder(dado_raiz->próximo_nó_direito);
-    }
-}
-
-void printLeftLook(dado4 *dado_raiz)
-{
-    if (dado_raiz != NULL)
-    {
-        printf("%d ", dado_raiz->dado_interno);
-        printLeftLook(dado_raiz->próximo_nó_esquerdo);
     }
 }

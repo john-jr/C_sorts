@@ -10,24 +10,23 @@
 #include <math.h>
 
 void WinMain(){
-    int qnt_elementos,escolha_modeloEstrutura; 
+    int qnt_eleme6ntos,escolha_modeloEstrutura; 
 
-  
     printf("Escolha um modelo de estrutura: \n1 - Lista Concatenada \n2 - Pilha \n3- Fila\n4 - Arvore Binaria de Busca \n\n0 - Cancelar e Sair\n\nEscolha: ");
     scanf("%d",&escolha_modeloEstrutura);
 
      switch (escolha_modeloEstrutura)
     {
          case 1:
-        startLinkedList();
+        
         break;
 
     case 2:
-        startStack();
+      
         break;
 
     case 3:
-        StartQueue();
+       
         break;
 
     case 4:

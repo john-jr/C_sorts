@@ -17,7 +17,7 @@ struct Fila
 typedef struct Fila fila;
 dado3 *createNewDado3(int);
 fila *AdicionarUltimoDaFila(fila *, dado3 *);
-
+/*
 void StartQueue(int qnt_elementos)
 {
     fila filaReal, *fila;
@@ -71,4 +71,4 @@ void printQueue(fila *fila)
         printf("%d  ", fila->head->dado_interno);
         fila->head = RemoverProximoDaFila(fila);
     }
-}
+}*/

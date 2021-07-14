@@ -10,7 +10,7 @@ struct Dado2
     
 };
 typedef struct Dado2 dado2;
-
+/*
 
 dado2 * createNewDado2(int);
 dado2 * EmpilharDado(dado2 *, dado2 *);
@@ -53,4 +53,4 @@ void printStack(dado2 *head){
         printf("%d  ",head->dado_interno);
         head = retirarUltimoDado(head);
         }
-}
+}*/

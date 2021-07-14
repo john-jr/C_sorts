@@ -11,6 +11,7 @@ struct Dado
 };
 typedef struct Dado dado;
 
+/*
 dado *createNewDado(int);
 dado *addNewDadoAtStart(dado **, dado *);
 dado *findDado(dado *, int);
@@ -201,4 +202,4 @@ dado *findDadobyPos(dado *head, int posicao_pesquisada)
         objeto_auxiliar = objeto_auxiliar->próximo_nó;
     }
     return NULL;
-}
+}*/
