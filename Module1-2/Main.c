@@ -22,7 +22,7 @@ void WinMain(){
         break;
 
     case 2:
-      
+      startStack();
         break;
 
     case 3:

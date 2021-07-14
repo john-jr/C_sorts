@@ -21,7 +21,7 @@ typedef struct Tree binaryTree;
 binaryTree *createNewArvore();
 bool isArvoreCreated(binaryTree *);
 dado4 *createNewDado4(int);
-//bool isDadoCreated(dado4 *);
+bool isDado4Created(dado4 *);
 
 void startBinaryTree()
 {
@@ -83,7 +83,7 @@ void startBinaryTree()
                         printf("O primeiro %d encontrado foi excluído da árvore", numero_pesquisado);
                     }
                     break;
-                case 3:
+                case 4:
                    receiveDataFromUserToInsertIntoTree(arvore);
                     break;
                 }
@@ -101,7 +101,7 @@ dado4 *createNewDado4(int dado_interno)
     return Novodado;
 }
 
-bool isDadoCreated(dado4 *dado)
+bool isDado4Created(dado4 *dado)
 {
     if (dado == NULL)
     {
@@ -143,7 +143,7 @@ void receiveDataFromUserToInsertIntoTree(binaryTree *arvore)
         printf("\nDigite o nó: ");
         scanf("%d", &input_user);
         dado = createNewDado4(input_user);
-        if (/*isDadoCreated(dado) ==*/ true)
+        if (isDado4Created(dado) == true)
         {
             if (arvore->raiz == NULL)
             {

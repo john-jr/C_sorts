@@ -23,7 +23,7 @@ dado *addNewDadoAtStart(dado **, dado *);
 linkedList *createLinkedList();
 bool isLinkedListCreated(linkedList *);
 dado *createNewDado(int);
-//bool isDadoCreated4(dado *);
+bool isDadoCreated(dado *);
 dado *findDado(dado *, int);
 dado *findDadobyPos(dado *, int);
 void printLinkedList(dado *);
@@ -167,7 +167,7 @@ dado *createNewDado(int dado_interno)
     return Novodado;
 }
 
-/*bool isDadoCreated(dado *dado)
+bool isDadoCreated(dado *dado)
 {
     if (dado == NULL)
     {
@@ -178,7 +178,7 @@ dado *createNewDado(int dado_interno)
         return true;
     }
 }
-*/
+
 
 void addNewDado(dado *dado_antigo, dado *Novodado)
 {
