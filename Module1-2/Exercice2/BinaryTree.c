@@ -2,97 +2,107 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <math.h>
+#include <stdbool.h>
 
 struct Dado4
 {
     int dado_interno;
+    int nivel;
     struct Dado4 *próximo_nó_esquerdo;
     struct Dado4 *próximo_nó_direito;
 };
 typedef struct Dado4 dado4;
 
-/*struct Tree
+struct Tree
 {
-    dado4 * dado;
-    int nivel;
-    int tamanho_total;
+    dado4 *raiz;
+    int altura;
 };
-typedef struct Tree binaryTree;*/
+typedef struct Tree binaryTree;
 
 dado4 *createNewDado4(int);
 
 void startBinaryTree(int qnt_elementos)
 {
-    dado4 *dado_raiz = NULL;
-    int escolha, numero_pesquisado;
-    for (int i = qnt_elementos; i > 0; i--)
+    dado4 *dado = NULL;
+    binaryTree *arvore = createNewArvore();
+
+    if (isArvoreCreated(arvore))
     {
-        if (i == qnt_elementos)
+        int escolha, numero_pesquisado, input_user;
+        printf("\nDigite o nó: ");
+        scanf("%d", input_user);
+        dado = createNewDado4(input_user);
+        if (isDadoCreated(dado))
         {
-            mountBinaryTree(&dado_raiz, i);
-        }
-        else
-        {
-            mountBinaryTree(&dado_raiz, rand() % (qnt_elementos + 5));
-        }
-    }
 
-    while (escolha != 0)
-    {
-        printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pos-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
-        scanf("%d", &escolha);
-        switch (escolha)
-        {
-        case 1:
-            printPreOrder(dado_raiz);
-            break;
-
-        case 2:
-            printPostOrder(dado_raiz);
-            break;
-        case 3:
-            printInOrder(dado_raiz);
-            break;
-        case 4:
-            printLeftLook(dado_raiz);
-            break;
-
-        default:
-
-            break;
+            if (arvore->raiz == NULL)
+            {
+                arvore->raiz = dado;
+            }
+            else
+            {
+                insertIntoTree(arvore->raiz, dado);
+            }
         }
 
-        if (escolha != 0)
+        /*while (escolha != 0)
         {
-            printf("\nO que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
+            printf("\nEscolha um modelo de listagem:\n\n1 - Pre-ordem\n2 - Pos-ordem\n3- Em Ordem\n4 - Apenas a esquerda\n0 - Cancelar e sair\n\nEscolha: ");
             scanf("%d", &escolha);
-            if (escolha == 1)
+            switch (escolha)
             {
-                printf("\nDigite o número a ser pesquisado: ");
-                scanf("%d", &numero_pesquisado);
-                if (findDado4(dado_raiz, numero_pesquisado) == 0)
+            case 1:
+                printPreOrder(dado_raiz);
+                break;
+
+            case 2:
+                printPostOrder(dado_raiz);
+                break;
+            case 3:
+                printInOrder(dado_raiz);
+                break;
+            case 4:
+                printLeftLook(dado_raiz);
+                break;
+
+            default:
+
+                break;
+            }
+
+            if (escolha != 0)
+            {
+                printf("\nO que deseja fazer agora?\n1 - Encontrar número\n2 - Excluir Número\n3 - Listar árvore novamente\n0 - Sair");
+                scanf("%d", &escolha);
+                if (escolha == 1)
                 {
-                    printf("%d não existe na árvore", numero_pesquisado);
+                    printf("\nDigite o número a ser pesquisado: ");
+                    scanf("%d", &numero_pesquisado);
+                    if (findDado4(dado, numero_pesquisado) == 0)
+                    {
+                        printf("%d não existe na árvore", numero_pesquisado);
+                    }
+                    else
+                    {
+                        printf("%d existe na árvore", numero_pesquisado);
+                    }
                 }
-                else
+                else if (escolha == 2)
                 {
-                    printf("%d existe na árvore", numero_pesquisado);
+                    printf("\nDigite o número a ser excluído: ");
+                    scanf("%d", &numero_pesquisado);
+                    if (RemoveDado4(dado, numero_pesquisado) == 0)
+                    {
+                        printf("%d não existe na árvore", numero_pesquisado);
+                    }
+                    else
+                    {
+                        printf("O primeiro %d encontrado foi excluído da árvore", numero_pesquisado);
+                    }
                 }
             }
-            else if (escolha == 2)
-            {
-                printf("\nDigite o número a ser excluído: ");
-                scanf("%d", &numero_pesquisado);
-                if (RemoveDado4(dado_raiz, numero_pesquisado) == 0)
-                {
-                    printf("%d não existe na árvore", numero_pesquisado);
-                }
-                else
-                {
-                    printf("O primeiro %d encontrado foi excluído da árvore", numero_pesquisado);
-                }
-            }
-        }
+        }*/
     }
 }
 
@@ -105,21 +115,53 @@ dado4 *createNewDado4(int dado_interno)
     return Novodado;
 }
 
-int mountBinaryTree(dado4 **dado_raiz, int dado_interno)
+bool isDadoCreated(dado *dado)
 {
-    dado4 *raiz = *dado_raiz;
-    if (raiz == NULL)
+    if (dado == NULL)
     {
-        (*dado_raiz) = createNewDado4(dado_interno);
-        return -1;
-    }
-    if (dado_interno < raiz->dado_interno)
-    {
-        return mountBinaryTree(&(raiz->próximo_nó_esquerdo), dado_interno);
+        printf("Error #1: Não foi possível alocar memória para o novo dado\nTente novamente mais tarde\n");
     }
     else
     {
-        return mountBinaryTree(&(raiz->próximo_nó_direito), dado_interno);
+        return true;
+    }
+}
+
+binaryTree *createNewArvore()
+{
+    binaryTree *Novaarvore = (binaryTree *)malloc(sizeof(binaryTree));
+    return Novaarvore;
+};
+
+bool isArvoreCreated(binaryTree *Novaarvore)
+{
+    if (Novaarvore == NULL)
+    {
+        printf("Error #2: Não foi possível alocar memória para a nova árvore\nTente novamente mais tarde\n");
+    }
+    else
+    {
+        Novaarvore->raiz = NULL;
+        Novaarvore->altura = 0;
+        return true;
+    }
+}
+
+int insertIntoTree(dado4 ** dado_raiz, dado4 *dado)
+{
+
+    if (dado_raiz == NULL)
+    {
+      dado_raiz = dado;
+        return -1;
+    }
+    if (dado->dado_interno < dado_raiz->dado_interno)
+    {
+        return insertIntoTree(&(dado_raiz->próximo_nó_esquerdo), dado);
+    }
+    else
+    {
+        return insertIntoTree(&(dado_raiz->próximo_nó_direito), dado);
     }
 }
 

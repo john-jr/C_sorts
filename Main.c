@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <math.h>
-
-int qnt_elementos,escolha_modeloEstrutura; 
-
 void WinMain(){
+    int qnt_elementos,escolha_modeloEstrutura; 
 
       printf("Digite a quantidade de elementos a ser criada: ");
         scanf("%d",&qnt_elementos);

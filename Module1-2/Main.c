@@ -12,9 +12,6 @@
 void WinMain(){
     int qnt_elementos,escolha_modeloEstrutura; 
 
-      printf("Digite a quantidade de elementos a ser criada: ");
-        scanf("%d",&qnt_elementos);
-
   
     printf("Escolha um modelo de estrutura: \n1 - Lista Concatenada \n2 - Pilha \n3- Fila\n4 - Arvore Binaria de Busca \n\n0 - Cancelar e Sair\n\nEscolha: ");
     scanf("%d",&escolha_modeloEstrutura);
@@ -22,19 +19,19 @@ void WinMain(){
      switch (escolha_modeloEstrutura)
     {
          case 1:
-        startLinkedList(qnt_elementos);
+        startLinkedList();
         break;
 
     case 2:
-        startStack(qnt_elementos);
+        startStack();
         break;
 
     case 3:
-        StartQueue(qnt_elementos);
+        StartQueue();
         break;
 
     case 4:
-        startBinaryTree(qnt_elementos);
+        startBinaryTree();
     break;
     }
 
