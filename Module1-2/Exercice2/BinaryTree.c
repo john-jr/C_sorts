@@ -74,7 +74,11 @@ void startBinaryTree()
                 case 2:
                     printf("\nDigite o número a ser excluído: ");
                     scanf("%d", &numero_pesquisado);
-                    if (RemoveDado4(&(arvore->raiz), numero_pesquisado) == 0)
+                    if(numero_pesquisado == arvore->raiz){
+                        arvore->raiz = RemoveDado4((arvore->raiz), numero_pesquisado);
+                         printf("A raiz %d foi encontrada e excluída da árvore", numero_pesquisado);
+                    }
+                    else if (RemoveDado4((arvore->raiz), numero_pesquisado) == 0)
                     {
                         printf("%d não existe na árvore", numero_pesquisado);
                     }
@@ -210,7 +214,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
     {
         if (dado_raiz->dado_interno == valor_pesquisado)
         {
-            if (dado_raiz->próximo_nó_direito != NULL) // Caso o dado raiz tenha apenas filhos maiores que ele
+            if (dado_raiz->próximo_nó_direito != NULL) // Caso o próxino nó do dado raiz tenha apenas filhos maiores que ele
             {
                 dado_substituto = dado_raiz->próximo_nó_direito;
                 dado_paisubstituto = dado_raiz;
@@ -234,6 +238,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 else
                 {
                     dado_raiz = dado_substituto;
+                  
                 }
 
                 if (dado_substituto->dado_interno > dado_paisubstituto->dado_interno)
@@ -244,6 +249,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 {
                     dado_paisubstituto->próximo_nó_esquerdo = NULL;
                 }
+                  return dado_raiz;
             }
             else if (dado_raiz->próximo_nó_esquerdo != NULL) // Caso o dado raiz tenha apenas filhos menores que ele
             {
@@ -269,6 +275,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 else
                 {
                     dado_raiz = dado_substituto;
+                    return dado_raiz;
                 }
 
                 if (dado_substituto->dado_interno > dado_paisubstituto->dado_interno)
@@ -296,21 +303,24 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 else
                 {
                     dado_raiz = NULL;
+                
                 }
             }
-
+            
             return 1;
         }
+
+
 
         if (dado_raiz->dado_interno < valor_pesquisado)
         {
             dado_pai = dado_raiz;
-            dado_raiz = dado_raiz->próximo_nó_esquerdo;
+            dado_raiz = dado_raiz->próximo_nó_direito;
         }
         else
         {
             dado_pai = dado_raiz;
-            dado_raiz = dado_raiz->próximo_nó_direito;
+            dado_raiz = dado_raiz->próximo_nó_esquerdo;
         }
         if (dado_raiz == NULL)
         {

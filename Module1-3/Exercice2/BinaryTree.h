@@ -2,5 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "Arvore.c";
+#include "Objects/Arvore.c";
+
+void startBinaryTree();
 
