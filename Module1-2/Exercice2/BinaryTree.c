@@ -171,11 +171,12 @@ int insertIntoTree(dado4 **dado_raiz_atual, dado4 *dado)
         (*dado_raiz_atual) = dado;
         return -1;
     }
+
     if (dado->dado_interno < objeto_auxiliar->dado_interno)
     {
         return insertIntoTree(&(objeto_auxiliar->próximo_nó_esquerdo), dado);
     }
-    else
+    else if(dado->dado_interno > objeto_auxiliar->dado_interno)
     {
         return insertIntoTree(&(objeto_auxiliar->próximo_nó_direito), dado);
     }
@@ -249,7 +250,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 {
                     dado_paisubstituto->próximo_nó_esquerdo = NULL;
                 }
-                  return dado_raiz;
+              
             }
             else if (dado_raiz->próximo_nó_esquerdo != NULL) // Caso o dado raiz tenha apenas filhos menores que ele
             {
@@ -275,7 +276,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 else
                 {
                     dado_raiz = dado_substituto;
-                    return dado_raiz;
+                 
                 }
 
                 if (dado_substituto->dado_interno > dado_paisubstituto->dado_interno)
@@ -307,7 +308,7 @@ int RemoveDado4(dado4 *dado_raiz, int valor_pesquisado)
                 }
             }
             
-            return 1;
+            return dado_raiz;
         }
 
 

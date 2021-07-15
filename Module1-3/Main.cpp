@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "Exercice2/BinaryTree.h";
-void Main(){
+void WinMain(){
     int qnt_elementos,escolha_modeloEstrutura; 
 
       printf("Digite a quantidade de elementos a ser criada: ");

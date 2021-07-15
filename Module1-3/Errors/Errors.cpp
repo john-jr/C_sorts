@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void errorMessages(int code){
     switch (code)
     {
