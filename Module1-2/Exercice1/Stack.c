@@ -25,7 +25,6 @@ bool isDado2Created(dado2 *);
 
 void startStack()
 {
-
     pilha *NovaPilha = createNewPilha();
     dado2 *novoDado;
     if (isPilhaCreated(NovaPilha))
@@ -47,7 +46,6 @@ void startStack()
         printStack(NovaPilha->topo);
     }
 }
-
 pilha *createNewPilha()
 {
     pilha *NovaPilha = malloc(sizeof(pilha));
@@ -65,7 +63,6 @@ bool isPilhaCreated(pilha *novaPilha)
         return true;
     }
 }
-
 dado2 *retirarUltimoDado(dado2 *head)
 {
     if (head->próximo_nó == NULL)
@@ -75,14 +72,12 @@ dado2 *retirarUltimoDado(dado2 *head)
     head = head->próximo_nó;
     return head;
 }
-
 dado2 *EmpilharDado(dado2 *head, dado2 *Novodado)
 {
     Novodado->próximo_nó = head;
     head = Novodado;
     return head;
 }
-
 dado2 *createNewDado2(int dado_interno)
 {
     dado2 *Novodado = malloc(sizeof(dado2));
@@ -90,7 +85,6 @@ dado2 *createNewDado2(int dado_interno)
     Novodado->próximo_nó = NULL;
     return Novodado;
 }
-
 bool isDado2Created(dado2 *novoDado)
 {
     if (novoDado == NULL)
@@ -102,7 +96,6 @@ bool isDado2Created(dado2 *novoDado)
         return true;
     }
 }
-
 void printStack(dado2 *head)
 {
     while (head != NULL)

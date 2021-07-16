@@ -179,7 +179,6 @@ bool isDadoCreated(dado *dado)
     }
 }
 
-
 void addNewDado(dado *dado_antigo, dado *Novodado)
 {
     Novodado->próximo_nó = dado_antigo->próximo_nó;

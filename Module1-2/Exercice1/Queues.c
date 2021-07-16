@@ -23,14 +23,23 @@ void printQueue(fila*);
 fila * createNewFila();
 bool isFilaCreated(fila*);
 bool isDado3Created(dado3*);
+fila* receiveDataFromUserToInsertIntoQueue();
 
 void StartQueue()
 {
     fila * novaFila = createNewFila();
-    dado3* novoDado;
     if(isFilaCreated(novaFila)){
-        int input_user=0, confirm_queue=0;
-        while (confirm_queue != 2)
+            
+        novaFila = receiveDataFromUserToInsertIntoQueue(novaFila);
+        printQueue(novaFila);
+    }
+}
+
+
+fila * receiveDataFromUserToInsertIntoQueue(fila * novaFila){
+    dado3* novoDado;
+    int input_user=0, confirm_queue=0;
+    while (confirm_queue != 2)
         {
            printf("Digite um valor:");
            scanf("%d",&input_user);
@@ -40,10 +49,9 @@ void StartQueue()
             printf("\nDado inserido na fila.\n Deseja inserir mais dados?\n1 - Sim, desejo inserir mais dados\n2 - Não,confirmar a fila\nEscolha: ");
             scanf("%d", &confirm_queue);
            }
-
         }
-             printQueue(novaFila);
-    }
+        return novaFila;
+
 }
 
 fila *AdicionarUltimoDaFila(fila *fila, dado3 *Novodado)
