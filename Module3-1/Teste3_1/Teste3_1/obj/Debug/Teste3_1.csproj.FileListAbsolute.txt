@@ -1,0 +1,15 @@
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\bin\Debug\Teste3_1.exe.config
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\bin\Debug\Teste3_1.exe
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\bin\Debug\Teste3_1.pdb
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.csprojAssemblyReference.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\App.g.cs
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1_MarkupCompile.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1_MarkupCompile.lref
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.g.resources
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.Properties.Resources.resources
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.csproj.GenerateResource.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.csproj.CoreCompileInputs.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.exe
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\Teste3_1.pdb
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\View\Main\MainWindow.g.cs
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module3-1\Teste3_1\Teste3_1\obj\Debug\View\Main\MainWindow.baml

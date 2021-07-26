@@ -70,6 +70,7 @@ bool isLinkedListCreated(Lista *Novalista)
 }
 
 void receiveInputFromUserToInsertIntoList(Lista *Novalista)
+
 {
     int input_user, confirm_linkedlist;
 
@@ -243,5 +244,7 @@ void removeDado(Dado *head, int valor_removido)
     objeto_auxilar->setProximo_no(NULL);
     objeto_auxilar->setDado_interno(NULL);
     objeto_auxilar->setNo_anterior(NULL);
+    delete(objeto_auxilar);
     printf("Valor %d removido da lista.\n", &valor_removido);
 }
+

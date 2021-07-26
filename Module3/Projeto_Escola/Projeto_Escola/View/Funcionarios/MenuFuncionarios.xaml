@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Projeto_Escola.View.Funcionarios.MenuFuncionarios"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projeto_Escola.View.Funcionarios"
+             mc:Ignorable="d" Height="487.5" Width="1082">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Menu Funcionarios" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5,8" Padding="3"/>
+        <TextBlock Text="Digite o ID:" Grid.Row="1" Grid.Column="0" Margin="5,8" Padding="3"/>
+        <TextBlock Text="Digite o Nome:" Grid.Row="2" Grid.Column="0" Margin="5,8" Padding="3"/>
+        <TextBlock Text="Digite o CPF:" Grid.Row="3" Grid.Column="0" Margin="5,8" Padding="3"/>
+        <TextBlock Text="Digite o Salario:" Grid.Row="4" Grid.Column="0" Margin="5,8" Padding="3"/>
+
+        <TextBox Name="txt_Id" Grid.Row="1" Grid.Column="1" Margin="5,8" Padding="3" Text="{Binding Path=NovoFuncionario.Id}"/>
+        <TextBox Name="txt_Nome" Grid.Row="2" Grid.Column="1" Margin="5,8" Padding="3" Text="{Binding Path=NovoFuncionario.Nome}"/>
+        <TextBox Name="txt_CPF" Grid.Row="3" Grid.Column="1" Margin="5,8" Padding="3" Text="{Binding Path=NovoFuncionario.Cpf}"/>
+        <TextBox Name="txt_Salario" Grid.Row="4" Grid.Column="1" Margin="5,8" Padding="3" Text="{Binding Path=NovoFuncionario.Salario}"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+            <Button x:Name="btn_Add" Content="ADD" Margin="5,8" Padding="3" Command="{Binding Path=SaveCommand}"/>
+            <Button x:Name="btn_Pesquisar" Content="SEARCH" Margin="5,8" Padding="3" Command="{Binding Path=SearchCommand}"/>
+            <Button x:Name="btn_Update" Content="UPDATE" Margin="5,8" Padding="3" Command="{Binding Path=UpdateCommand}"/>
+            <Button x:Name="btn_Delete" Content="DELETE" Margin="5,8" Padding="3" Command="{Binding Path=DeleteCommand}"/>
+        </StackPanel>
+        <TextBlock Name="txt_Mensagem" Grid.Row="6" Grid.Column="1" Margin="5,8" Padding="3" Text="{Binding Path=Message}"/>
+        <DataGrid Name="dgFuncionarios" AutoGenerateColumns="False" Grid.Row="7" Grid.Column="1" Margin="5,8" Padding="3"  ItemsSource="{Binding Path=ListaFuncionarios}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nome" Width="200" Binding="{Binding Path=Nome}"/>
+                <DataGridTextColumn Header="CPF" Width="200" Binding="{Binding Path=Cpf}"/>
+                <DataGridTextColumn Header="Salario" Width="200" Binding="{Binding Path=Salario}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+       
+
+
+    </Grid>
+</UserControl>

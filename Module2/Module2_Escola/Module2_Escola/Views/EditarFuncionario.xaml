@@ -1,0 +1,18 @@
+﻿<Window x:Class="Module2_Escola.Views.EditarFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Module2_Escola.Views"
+        mc:Ignorable="d"
+        Title="EditarFuncionario" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="124*"/>
+            <RowDefinition Height="145*"/>
+        </Grid.RowDefinitions>
+        <Label Margin="10,10,238,87">Nome do Funcionario:</Label>
+        <TextBox Text="{Binding Funcionario.nome}" Margin="154,10,104,87" />
+        <Button Margin="161,86,172,30" Grid.Row="1">Atualizar</Button>
+    </Grid>
+</Window>

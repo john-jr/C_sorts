@@ -1,0 +1,15 @@
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\bin\Debug\Module2_Escola.exe.config
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\bin\Debug\Module2_Escola.exe
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\bin\Debug\Module2_Escola.pdb
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.csprojAssemblyReference.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Views\EditarFuncionario.g.cs
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\App.g.cs
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola_MarkupCompile.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola_MarkupCompile.lref
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Views\EditarFuncionario.baml
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.g.resources
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.Properties.Resources.resources
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.csproj.GenerateResource.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.csproj.CoreCompileInputs.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.exe
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module2_Escola\obj\Debug\Module2_Escola.pdb

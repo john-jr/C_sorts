@@ -1,0 +1,34 @@
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.exe.config
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.exe
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.pdb
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csprojAssemblyReference.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\MainWindow.g.cs
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\App.g.cs
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola_MarkupCompile.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola_MarkupCompile.lref
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\MainWindow.baml
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.g.resources
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.Properties.Resources.resources
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csproj.GenerateResource.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csproj.CoreCompileInputs.cache
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.exe
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.pdb
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\FuncionarioInfoView.g.cs
+C:\Debugging\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\FuncionarioInfoView.baml
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.exe.config
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.exe
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\bin\Debug\Module3_Escola.pdb
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csprojAssemblyReference.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\FuncionarioInfoView.g.cs
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\MainWindow.g.cs
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\App.g.cs
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola_MarkupCompile.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola_MarkupCompile.lref
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\FuncionarioInfoView.baml
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Views\MainWindow.baml
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.g.resources
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.Properties.Resources.resources
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csproj.GenerateResource.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.csproj.CoreCompileInputs.cache
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.exe
+E:\Trabalho\LUZ Projects\Initial-Training---Software-Enginner\Module2\Module2_Escola\Module3_Escola\obj\Debug\Module3_Escola.pdb
